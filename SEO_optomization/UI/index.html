@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SEO Generator</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>SEO Generator</h1>
+      <p>Analyze competitors and generate HTML meta tags for your website</p>
+    </header>
+
+    <form id="seoForm">
+
+      <section class="card">
+        <h2>Business Information</h2>
+        <div class="grid-2">
+          <div class="field">
+            <label for="bizName">Business Name</label>
+            <input type="text" id="bizName" placeholder="e.g. Al Noor Clinic" required />
+          </div>
+          <div class="field">
+            <label for="industry">Industry</label>
+            <input type="text" id="industry" placeholder="e.g. healthcare, real estate" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="bizDesc">Business Description</label>
+          <textarea id="bizDesc" rows="3" placeholder="What does your business offer?" required></textarea>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="location">Target Location</label>
+            <input type="text" id="location" placeholder="e.g. Karachi, Pakistan" />
+          </div>
+          <div class="field">
+            <label for="schemaType">Schema Type</label>
+            <select id="schemaType">
+              <option value="LocalBusiness">Local Business</option>
+              <option value="MedicalBusiness">Medical / Clinic</option>
+              <option value="LegalService">Legal Service</option>
+              <option value="RealEstateAgent">Real Estate</option>
+              <option value="Restaurant">Restaurant</option>
+              <option value="EducationalOrganization">Education</option>
+              <option value="Store">Retail / Store</option>
+              <option value="SoftwareApplication">Software / App</option>
+              <option value="Article">Blog / Article</option>
+              <option value="Organization">General Organization</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Competitor URLs</h2>
+        <p class="hint">Enter top-ranked websites in your field. Up to 5 URLs.</p>
+        <div id="urlList"></div>
+        <button type="button" class="btn-ghost" id="addUrlBtn">+ Add URL</button>
+      </section>
+
+      <button type="submit" class="btn-primary" id="genBtn">Generate SEO Code</button>
+
+    </form>
+
+    <div id="logWrap" class="card hidden">
+      <h2>Scrape Log</h2>
+      <ul id="logList"></ul>
+    </div>
+
+    <div id="outputWrap" class="card hidden">
+      <div class="output-header">
+        <h2>Generated SEO Code</h2>
+        <div class="output-actions">
+          <button class="btn-ghost" onclick="copyCode()">Copy</button>
+          <button class="btn-ghost" onclick="downloadCode()">Download</button>
+        </div>
+      </div>
+      <p class="hint">Paste this inside your HTML <code>&lt;head&gt;</code> tag.</p>
+      <pre id="outputBox"></pre>
+    </div>
+
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
